@@ -1,0 +1,111 @@
+@menu2-color:gray;
+//#f8f8f8;
+@lighten-percentage:30%;
+@selected-color:#FFF;
+
+.menu2-highlight {background: lighten(@menu2-color, @lighten-percentage)}
+
+.btn-default {
+    background: #ecf0f1;
+    box-shadow: 0 2px #bdc3c7;
+    color: #999;
+}
+
+.btn {
+    color: #FFF;
+    padding: 10px 20px;
+    margin: 15px 0;
+    /* font-family: "Open Sans", Helvetica, Arial, sans-serif; */
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-shadow: none;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.services .more-link
+{
+    .btn;
+    .btn-default;
+    margin-top: 10px;
+    display:inline-block;
+}
+
+.current-menu-item
+{
+    background-color:@menu2-color;
+    border-radius: 10px;
+}
+/* selected top services tab on main menu */
+div.services #menu-main li.services
+{
+    background-color:@menu2-color;
+    height: 68px;
+    border-radius: 10px 10px 0px 0px;
+    a{
+        color:black !important;
+    }
+}
+nav.services
+{
+    background-color:@menu2-color;
+}
+
+a.service-readmore
+{
+    box-shadow: 0 2px #bdc3c7;
+    color: white;
+    background-color:@menu2-color;
+}
+
+nav#nav-service 
+{
+    background-color:@menu2-color;
+    text-align: right;
+    ul {
+        margin-right:100px;
+        list-style-type: none;
+        li{
+    
+            
+            background-color:@menu2-color;
+            display: inline-block;
+            margin-right: 10px; 
+            margin-bottom: 0px;
+            border-radius: 5px 5px 0px 0px;
+           
+            
+            margin-top:4px;
+            a{
+                line-height: 2.5;
+                padding:10px 5px;
+                color:lighten(@menu2-color, @lighten-percentage);
+            }
+            
+            
+        }
+        li.active
+        {
+            
+            background-color:@selected-color;
+            a{
+                color:@menu2-color;
+            }
+        }
+        li:hover
+        {
+            .menu2-highlight;
+            a{
+                color:@menu2-color;
+            }
+        }
+        padding:0;
+        p{
+            background-color: blue;
+        }
+    }
+}

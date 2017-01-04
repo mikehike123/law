@@ -1,0 +1,30 @@
+
+
+/* Put your custom styles here */
+
+.carousel-control.left {
+background: rgba(25,52,65,1);
+background: -moz-linear-gradient(left, rgba(25,52,65,1) 0%, rgba(37,64,77,1) 44%, rgba(52,79,92,0.75) 97%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(25,52,65,1)), color-stop(44%, rgba(37,64,77,1)), color-stop(97%, rgba(52,79,92,0.75)));
+background: -webkit-linear-gradient(left, rgba(25,52,65,1) 0%, rgba(37,64,77,1) 44%, rgba(52,79,92,0.75) 97%);
+background: -o-linear-gradient(left, rgba(25,52,65,1) 0%, rgba(37,64,77,1) 44%, rgba(52,79,92,0.75) 97%);
+background: -ms-linear-gradient(left, rgba(25,52,65,1) 0%, rgba(37,64,77,1) 44%, rgba(52,79,92,0.75) 97%);
+background: linear-gradient(to right, rgba(25,52,65,1) 0%, rgba(37,64,77,1) 44%, rgba(52,79,92,0.75) 97%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#193441', endColorstr='#344f5c', GradientType=1 );
+}
+
+.carousel-caption p
+{
+    color: #ffffff;
+}
+.whiteButton {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+/* space out paragraph of services */
+.services p {
+    padding: 0 20px;
+}
