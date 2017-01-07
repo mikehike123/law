@@ -1,12 +1,4 @@
 <?php
-
-function my_more_link($more_link, $more_link_text) {
-    $more_link="<div class='more-wrapper'>{$more_link}</div>";
-    return $more_link;
-	//return str_replace($more_link_text, "Learn More", $more_link);
-}
-add_filter('the_content_more_link', 'my_more_link', 10, 2);
-
 if ( ! function_exists( 'pinegrow_setup' ) ) :
 
 function pinegrow_setup() {
@@ -21,7 +13,7 @@ function pinegrow_setup() {
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support( 'automatic-feed-links' );
-    add_theme_support( 'custom-header' );
+
     /*
      * Let WordPress manage the document title.
      */
@@ -253,6 +245,21 @@ function pinegrow_customize_register( $wp_customize ) {
         'section' => 'blocks_footer_1_3'
     ));
 
+    $wp_customize->add_section( 'header', array(
+        'title' => __( 'Header', 'pinegrow' )
+    ));
+
+    $wp_customize->add_setting( 'header_img', array(
+        'type' => 'theme_mod'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'header_img', array(
+        'label' => __( 'header Image ', 'pinegrow' ),
+        'type' => 'media',
+        'mime_type' => 'image',
+        'section' => 'header'
+    ) ) );
+
     $wp_customize->add_section( 'blocks_promo3', array(
         'title' => __( 'Promo 3', 'pinegrow' )
     ));
@@ -388,6 +395,21 @@ function pinegrow_customize_register( $wp_customize ) {
         'label' => __( 'Sub Title', 'pinegrow' ),
         'type' => 'text',
         'section' => 'testimonials'
+    ));
+
+    $wp_customize->add_section( 'portfolios_section', array(
+        'title' => __( 'Portfolios', 'pinegrow' )
+    ));
+
+    $wp_customize->add_setting( 'portfolios_title', array(
+        'type' => 'theme_mod',
+        'default' => 'My Portfolio'
+    ));
+
+    $wp_customize->add_control( 'portfolios_title', array(
+        'label' => __( 'Title', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'portfolios_section'
     ));
 
     $wp_customize->add_section( 'blocks_team_1_1', array(
@@ -566,234 +588,6 @@ function pinegrow_customize_register( $wp_customize ) {
         'section' => 'blocks_footer_1_3'
     ));
 
-    $wp_customize->add_section( 'blocks_footer_1_3', array(
-        'title' => __( 'Footer 1-3', 'pinegrow' )
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_image', array(
-        'type' => 'theme_mod'
-    ));
-
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'blocks_footer_1_3_image', array(
-        'label' => __( 'Image', 'pinegrow' ),
-        'type' => 'media',
-        'mime_type' => 'image',
-        'section' => 'blocks_footer_1_3'
-    ) ) );
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_facebook', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_facebook', array(
-        'label' => __( 'Facebook link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_twitter', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_twitter', array(
-        'label' => __( 'Twitter link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_google', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_google', array(
-        'label' => __( 'Google+ link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_pinterest', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_pinterest', array(
-        'label' => __( 'Pinterest link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_behance', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_behance', array(
-        'label' => __( 'Behance link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_dribbble', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_dribbble', array(
-        'label' => __( 'Dribbble link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_title', array(
-        'type' => 'theme_mod',
-        'default' => 'We <i class="fa fa-heart pomegranate"></i> our amazing customers'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_title', array(
-        'label' => __( 'Title', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_text', array(
-        'type' => 'theme_mod',
-        'default' => '123 Anywhere Street,<br> London,<br> LO4 6ON'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_text', array(
-        'label' => __( 'Text', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_bottom_text', array(
-        'type' => 'theme_mod',
-        'default' => 'Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_bottom_text', array(
-        'label' => __( 'Bottom Text', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_section( 'blocks_footer_1_3', array(
-        'title' => __( 'Footer 1-3', 'pinegrow' )
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_image', array(
-        'type' => 'theme_mod'
-    ));
-
-    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'blocks_footer_1_3_image', array(
-        'label' => __( 'Image', 'pinegrow' ),
-        'type' => 'media',
-        'mime_type' => 'image',
-        'section' => 'blocks_footer_1_3'
-    ) ) );
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_facebook', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_facebook', array(
-        'label' => __( 'Facebook link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_twitter', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_twitter', array(
-        'label' => __( 'Twitter link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_google', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_google', array(
-        'label' => __( 'Google+ link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_pinterest', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_pinterest', array(
-        'label' => __( 'Pinterest link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_behance', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_behance', array(
-        'label' => __( 'Behance link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_dribbble', array(
-        'type' => 'theme_mod',
-        'default' => '#'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_dribbble', array(
-        'label' => __( 'Dribbble link', 'pinegrow' ),
-        'type' => 'text',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_title', array(
-        'type' => 'theme_mod',
-        'default' => 'We <i class="fa fa-heart pomegranate"></i> our amazing customers'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_title', array(
-        'label' => __( 'Title', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_text', array(
-        'type' => 'theme_mod',
-        'default' => '123 Anywhere Street,<br> London,<br> LO4 6ON'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_text', array(
-        'label' => __( 'Text', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
-    $wp_customize->add_setting( 'blocks_footer_1_3_bottom_text', array(
-        'type' => 'theme_mod',
-        'default' => 'Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>'
-    ));
-
-    $wp_customize->add_control( 'blocks_footer_1_3_bottom_text', array(
-        'label' => __( 'Bottom Text', 'pinegrow' ),
-        'type' => 'textarea',
-        'section' => 'blocks_footer_1_3'
-    ));
-
     $wp_customize->add_section( 'blocks_blog_1', array(
         'title' => __( 'Blog 1', 'pinegrow' )
     ));
@@ -818,6 +612,352 @@ function pinegrow_customize_register( $wp_customize ) {
         'label' => __( 'Subtitle', 'pinegrow' ),
         'type' => 'textarea',
         'section' => 'blocks_blog_1'
+    ));
+
+    $wp_customize->add_section( 'blocks_footer_1_3', array(
+        'title' => __( 'Footer 1-3', 'pinegrow' )
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_image', array(
+        'type' => 'theme_mod'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'blocks_footer_1_3_image', array(
+        'label' => __( 'Image', 'pinegrow' ),
+        'type' => 'media',
+        'mime_type' => 'image',
+        'section' => 'blocks_footer_1_3'
+    ) ) );
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_facebook', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_facebook', array(
+        'label' => __( 'Facebook link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_twitter', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_twitter', array(
+        'label' => __( 'Twitter link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_google', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_google', array(
+        'label' => __( 'Google+ link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_pinterest', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_pinterest', array(
+        'label' => __( 'Pinterest link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_behance', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_behance', array(
+        'label' => __( 'Behance link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_dribbble', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_dribbble', array(
+        'label' => __( 'Dribbble link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_title', array(
+        'type' => 'theme_mod',
+        'default' => 'We <i class="fa fa-heart pomegranate"></i> our amazing customers'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_title', array(
+        'label' => __( 'Title', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_text', array(
+        'type' => 'theme_mod',
+        'default' => '123 Anywhere Street,<br> London,<br> LO4 6ON'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_text', array(
+        'label' => __( 'Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_bottom_text', array(
+        'type' => 'theme_mod',
+        'default' => 'Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_bottom_text', array(
+        'label' => __( 'Bottom Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_section( 'blocks_content_1_2', array(
+        'title' => __( 'Content 1-2', 'pinegrow' )
+    ));
+
+    $wp_customize->add_section( 'blocks_footer_1_3', array(
+        'title' => __( 'Footer 1-3', 'pinegrow' )
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_image', array(
+        'type' => 'theme_mod'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'blocks_footer_1_3_image', array(
+        'label' => __( 'Image', 'pinegrow' ),
+        'type' => 'media',
+        'mime_type' => 'image',
+        'section' => 'blocks_footer_1_3'
+    ) ) );
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_facebook', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_facebook', array(
+        'label' => __( 'Facebook link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_twitter', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_twitter', array(
+        'label' => __( 'Twitter link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_google', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_google', array(
+        'label' => __( 'Google+ link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_pinterest', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_pinterest', array(
+        'label' => __( 'Pinterest link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_behance', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_behance', array(
+        'label' => __( 'Behance link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_dribbble', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_dribbble', array(
+        'label' => __( 'Dribbble link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_title', array(
+        'type' => 'theme_mod',
+        'default' => 'We <i class="fa fa-heart pomegranate"></i> our amazing customers'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_title', array(
+        'label' => __( 'Title', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_text', array(
+        'type' => 'theme_mod',
+        'default' => '123 Anywhere Street,<br> London,<br> LO4 6ON'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_text', array(
+        'label' => __( 'Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_bottom_text', array(
+        'type' => 'theme_mod',
+        'default' => 'Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_bottom_text', array(
+        'label' => __( 'Bottom Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_section( 'blocks_footer_1_3', array(
+        'title' => __( 'Footer 1-3', 'pinegrow' )
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_image', array(
+        'type' => 'theme_mod'
+    ));
+
+    $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'blocks_footer_1_3_image', array(
+        'label' => __( 'Image', 'pinegrow' ),
+        'type' => 'media',
+        'mime_type' => 'image',
+        'section' => 'blocks_footer_1_3'
+    ) ) );
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_facebook', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_facebook', array(
+        'label' => __( 'Facebook link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_twitter', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_twitter', array(
+        'label' => __( 'Twitter link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_google', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_google', array(
+        'label' => __( 'Google+ link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_pinterest', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_pinterest', array(
+        'label' => __( 'Pinterest link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_behance', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_behance', array(
+        'label' => __( 'Behance link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_dribbble', array(
+        'type' => 'theme_mod',
+        'default' => '#'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_dribbble', array(
+        'label' => __( 'Dribbble link', 'pinegrow' ),
+        'type' => 'text',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_title', array(
+        'type' => 'theme_mod',
+        'default' => 'We <i class="fa fa-heart pomegranate"></i> our amazing customers'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_title', array(
+        'label' => __( 'Title', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_text', array(
+        'type' => 'theme_mod',
+        'default' => '123 Anywhere Street,<br> London,<br> LO4 6ON'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_text', array(
+        'label' => __( 'Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
+    ));
+
+    $wp_customize->add_setting( 'blocks_footer_1_3_bottom_text', array(
+        'type' => 'theme_mod',
+        'default' => 'Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>'
+    ));
+
+    $wp_customize->add_control( 'blocks_footer_1_3_bottom_text', array(
+        'label' => __( 'Bottom Text', 'pinegrow' ),
+        'type' => 'textarea',
+        'section' => 'blocks_footer_1_3'
     ));
 
     $wp_customize->add_section( 'blocks_footer_1_3', array(
@@ -1021,12 +1161,4 @@ require_once "components/pg.blocks.wp/inc/blocks/wp_blocks.php";
 require_once "inc/bootstrap/wp_bootstrap_pagination.php";
 
     /* Pinegrow generated Include Resources End */
-
-function my_enqueue_scripts()
-{
-    wp_deregister_style( 'style_css' );
-    wp_enqueue_style( 'style_css', get_template_directory_uri() . '/css/style.css', false, null, 'all');
-}
-add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
-
 ?>

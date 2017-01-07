@@ -105,3 +105,29 @@ span.separator:last-child
     background-color: #727070;
 }
 
+.portfolio-law
+{
+    background-color: #193441;
+}
+
+.hr-portfolio
+{
+    border-color: white !important;
+}
+
+h4-portfolio
+{
+    color: #ffffff;
+}
+
+.portfolio-detail p
+{
+    color: #fff;
+}
+
+.portfolio-member img
+{
+    display: inline-block !important;
+}
+
+

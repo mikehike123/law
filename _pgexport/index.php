@@ -103,6 +103,48 @@ get_header(); ?>
     </div>
     <!-- /.container -->
 </section>
+<section class="content-block portfolio-law white" title="Portfolio">
+    <a name="ourTeam"></a>
+    <div class="container">
+        <div class="underlined-title">
+            <h1 class='white'><?php echo get_theme_mod( 'portfolios_title', __( 'My Portfolio', 'pinegrow' ) ); ?></h1>
+            <hr class="white hr-portfolio">
+        </div>
+        <div class="row">
+            <!-- /.team-member-wrap -->
+            <!-- /.team-member-wrap -->
+            <?php
+                $myportfolios_args = array(
+                    'post_type' => 'portfolios',
+                    'post_status' => 'publish'
+                )
+            ?>
+            <?php $myportfolios = new WP_Query( $myportfolios_args ); ?>
+            <?php if ( $myportfolios->have_posts() ) : ?>
+                <?php while ( $myportfolios->have_posts() ) : $myportfolios->the_post(); ?>
+                    <div class="col-sm-4 team-member-wrap text-center">
+                        <div class="team-member portfolio-member">
+                            <a href="<?php echo esc_url( wp_get_shortlink()); ?>"><?php the_post_thumbnail( null, array(
+                                        'class' => 'img-responsive wp-post-image'
+                                ) ); ?></a>
+                            <div class="portfolio-detail text-center">
+                                <a href="<?php echo esc_url( wp_get_shortlink()); ?>"><h4 class="white"><?php the_title(); ?></h4></a>
+                                <?php the_content(); ?>
+                                <!-- /.social -->
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p><?php _e( 'Sorry, no posts matched your criteria.', 'pinegrow' ); ?></p>
+            <?php endif; ?>
+            <!-- /.team-member-wrap -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
 <section class="content-block team-1 team-1-1 team">
     <a name="ourTeam"></a>
     <div class="container">
@@ -128,7 +170,7 @@ get_header(); ?>
                     <div class="col-sm-4 team-member-wrap">
                         <div class="team-member">
                             <?php the_post_thumbnail( 'large', array(
-                                    'class' => 'img-responsive wp-post-image'
+                                    'class' => 'img-responsive wp-post-image wp-post-image'
                             ) ); ?>
                             <div class="team-details">
                                 <h4 class="member-name"><?php the_title(); ?></h4>

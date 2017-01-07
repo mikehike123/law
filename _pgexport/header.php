@@ -29,9 +29,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="#">
-                            <img src="<?php echo esc_url( get_header_image() ); ?>" class="brand-img img-responsive">
-                        </a>
+                        <a href="#"><?php echo wp_get_attachment_image( get_theme_mod( 'header_img' ), null, null, array(
+                                    'class' => 'brand-img img-responsive'
+                            ) ) ?></a>
                     </div>
                     <!-- Navigation -->
                     <div class="<?php echo(get_post_type()?get_post_type():""); ?> collapse navbar-collapse">

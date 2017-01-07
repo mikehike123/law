@@ -1,0 +1,119 @@
+
+
+/* Put your custom styles here */
+
+.carousel-control.left {
+  background: #193441;
+  background: -moz-linear-gradient(left, #193441 0%, #25404d 44%, rgba(52, 79, 92, 0.75) 97%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #193441), color-stop(44%, #25404d), color-stop(97%, rgba(52, 79, 92, 0.75)));
+  background: -webkit-linear-gradient(left, #193441 0%, #25404d 44%, rgba(52, 79, 92, 0.75) 97%);
+  background: -o-linear-gradient(left, #193441 0%, #25404d 44%, rgba(52, 79, 92, 0.75) 97%);
+  background: -ms-linear-gradient(left, #193441 0%, #25404d 44%, rgba(52, 79, 92, 0.75) 97%);
+  background: linear-gradient(to right, #193441 0%, #25404d 44%, rgba(52, 79, 92, 0.75) 97%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#193441', endColorstr='#344f5c', GradientType=1);
+}
+
+.carousel-caption p
+{
+    color: #ffffff;
+}
+
+section.team
+{
+    background-color: #6a3701;
+}
+
+section.team h1,
+section.team h4,
+section.team p,
+section.team i
+{
+    color: #ffffff !important;
+}
+
+section.promo-1 h1,
+section.promo-1 p
+{
+    color: #ffffff;
+}
+
+section.promo-1 h1
+{
+    font-size: 2.5rem;
+}
+
+section.promo-1 p
+{
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px)
+{
+    section.promo-1
+    {
+        display: none;
+    }
+}
+
+section.services h1,
+section.services h4,
+section.services p
+{
+    color: #ffffff;
+}
+
+.whiteButton
+{
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+
+/* space out paragraph of services */
+
+.services p
+{
+    padding: 0 0px;
+}
+
+.simpleHeader
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.simpleBody
+{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.team
+{
+}
+
+span.separator:last-child
+{
+    color: #ffffff !important;
+}
+
+.breadcrumb-container li:last-child  a
+{
+    color: #ffffff !important;
+    background-color: #727070;
+}
+
+.portfolio-law
+{
+    background-color: #193441;
+}
+
+.hr-portfolio
+{
+    border-color: #16a085 !important;
+}
+
+
+

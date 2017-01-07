@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html lang="en" style="height:100%;" wp-site wp-site-is-master-page wp-site-theme-name="pinegrow" wp-site-theme-slug="pinegrow" wp-site-themes-folder="C:\xampp\htdocs\lawwp\wp-content\themes\pinegrow" wp-site-preview-url="http://localhost/lawwp">
+<html lang="en" style="height:100%;" wp-site wp-site-is-master-page wp-site-theme-name="pinegrow" wp-site-theme-slug="pinegrow" wp-site-themes-folder="/var/www/html/playwp/wp-content/themes/pinegrow" wp-site-preview-url="http://localhost/playwp">
     <head>
         <meta charset="utf-8">
         <title>Pinegrow Bootstrap Blocks</title>
@@ -25,7 +25,7 @@
         <link href="css/custom.css" rel="stylesheet" type="text/css">
     </head>     
     <body data-spy="scroll" data-target="nav">
-        <header id="header-1" class="soft-scroll header-1">
+        <header id="header-1" class="soft-scroll header-1" wp-cz-section="header" wp-cz-section-title="Header">
             <!-- Navbar -->
             <nav class="main-nav navbar-fixed-top headroom headroom--pinned">
                 <div class="container">
@@ -38,7 +38,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a href="#">
-                            <img src="images/brand.png" class="brand-img img-responsive" wp-header-image>
+                            <img src="images/brand.png" class="brand-img img-responsive" wp-cz-control="header_img" wp-cz-control-label="header Image " wp-cz-control-type="media" wp-cz-control-mime-type="image" wp-cz-control-section="header" wp-attachment-image wp-attachment-image-theme-mod="header_img">
                         </a>
                     </div>
                     <!-- Navigation -->
@@ -177,6 +177,44 @@
                 </div>
                 <!-- /.container -->
             </section>
+            <section class="content-block portfolio-law white" wp-cz-section="portfolios_section" title="Portfolio" data-pg-name="Portfolio" wp-cz-section-title="Portfolios">
+                <a name="ourTeam"></a>
+                <div class="container">
+                    <div class="underlined-title">
+                        <h1 wp-cz-control="portfolios_title" wp-cz-control-label="Title" wp-cz-control-section="portfolios_section" wp-cz-theme-mod="portfolios_title" wp-cz-control-type="textarea" class='white'>My Portfolio</h1>
+                        <hr class="white hr-portfolio">
+                    </div>
+                    <div class="row">
+                        <!-- /.team-member-wrap -->
+                        <!-- /.team-member-wrap -->
+                        <div class="col-sm-4 team-member-wrap text-center" wp-loop="myportfolios" wp-loop-post-type-custom="portfolios" wp-loop-post-status="publish">
+                            <div class="team-member portfolio-member">
+                                <a href="" wp-get-shortlink>
+                                    <img class="portfolio" width="300" height="170" src="http://localhost/playwp/wp-content/uploads/2015/07/logo-yeoman.png" class="img-responsive wp-post-image" alt="" wp-the-post-thumbnail />
+                                </a>
+                                <div class="portfolio-detail text-center">
+                                    <a href="" wp-get-shortlink><h4 class="white" wp-the-title>Full Name</h4></a>
+                                    <p class="white" wp-the-content>Donec in velit vel ipsum auctor pulvinar. Vesti bulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod auctor pulvinar.</p>
+                                    <!-- /.social -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 team-member-wrap" wp-loop-skip>
+                            <div class="team-member">
+                                <img src="http://placehold.it/600x500" class="img-responsive" alt="Member Image">
+                                <div class="team-details">
+                                    <h4 class="member-name">Full Name</h4>
+                                    <p>Donec in velit vel ipsum auctor pulvinar. Vesti bulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod auctor pulvinar.</p>
+                                    <!-- /.social -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.team-member-wrap -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </section>
             <section class="content-block team-1 team-1-1 team" wp-cz-section="blocks_team_1_1" wp-cz-section-title="Team 1-1" wp-cz-control="blocks_team_1_1_source" wp-cz-control-label="Content source" wp-cz-control-type="custom" wp-cz-control-type-custom="WP_BlocksContentDropdown_Customize_Control" wp-cz-control-section="blocks_team_1_1">
                 <a name="ourTeam"></a>
                 <div class="container">
@@ -187,7 +225,7 @@
                     <div class="row">
                         <div class="col-sm-4 team-member-wrap" wp-loop="blocks" wp-loop-clear-columns wp-loop-post_parent="get_theme_mod('blocks_team_1_1_source')" wp-loop-post-type-custom="blocks_content" wp-loop-post-status="publish" wp-loop-nopaging="true" wp-loop-order="ASC" wp-loop-orderby="menu_order">
                             <div class="team-member">
-                                <img width="400" height="400" src="http://localhost/lawwp/wp-content/uploads/2015/07/t6.jpg" class="img-responsive wp-post-image" alt="" srcset="http://localhost/lawwp/wp-content/uploads/2015/07/t6.jpg 400w, http://localhost/lawwp/wp-content/uploads/2015/07/t6-150x150.jpg 150w, http://localhost/lawwp/wp-content/uploads/2015/07/t6-300x300.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" wp-the-post-thumbnail="large" />
+                                <img width="400" height="400" src="http://localhost/playwp/wp-content/uploads/2015/07/t6.jpg" class="img-responsive wp-post-image wp-post-image" alt="" srcset="http://localhost/playwp/wp-content/uploads/2015/07/t6.jpg 400w, http://localhost/playwp/wp-content/uploads/2015/07/t6-150x150.jpg 150w, http://localhost/playwp/wp-content/uploads/2015/07/t6-300x300.jpg 300w" sizes="(max-width: 400px) 100vw, 400px" wp-the-post-thumbnail="large" />
                                 <div class="team-details">
                                     <h4 class="member-name" wp-the-title>John DOE</h4>
                                     <p class="position" wp-meta-value wp-meta-value-key="position" wp-if-get-post-meta="|position">Co-Founder</p>
